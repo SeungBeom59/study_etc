@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h5>[ [] ]를 이용한 출력</h5>
+    <h4>[[${list}]]</h4>
+    <hr/>
+    <h5>text 출력</h5>
+    <h4 th:text="${list}"></h4>
+    <hr/>
+    <ul>
+        <li th:each="str:${list}" th:text="${str}"></li>
+    </ul>
+    <hr/>
+    <h5>each</h5>
+    <ul>
+        <th:block th:each="str:${list}">
+            <li>[[${str}]]</li>
+        </th:block>
+    </ul>
+    <hr/>
+    <h5>each, status</h5>
+    <ul>
+        <li th:each="str,status:${list}">
+            [[${status.index}]] -- [[${str}]]
+        </li>
+    </ul>
+    <hr/>
+    <h5>each와 status, if와 unless를 이용한 출력</h5>
+    <ul>
+        <li th:each="str,status: ${list}">
+            <span th:if="${status.odd}">ODD -- [[${str}]]</span>
+            <span th:unless="${status.odd}">EVEN -- [[${str}]]</span>
+        </li>
+    </ul>
+    <hr/>
+    <h5>each와 status, 삼항연산자 활용</h5>
+    <ul>
+        <li th:each="str,status : ${list}">
+            <span th:text="${status.odd}? 'ODD -- ' + ${str} : 'EVEN -- ' + ${str}"></span>
+        </li>
+    </ul>
+    <hr/>
+    <h5>switch를 이용한 출력</h5>
+    <ul>
+        <li th:each="str, status:${list}">
+            <th:block th:switch="${status.index %3}">
+                <span th:case="0">0</span>
+                <span th:case="1">1</span>
+                <span th:case="2">2</span>
+            </th:block>
+        </li>
+    </ul>
+    <hr/>
+    <h5>링크 이동</h5>
+    <a th:href="@{/hello}">Go to /hello</a>
+    <hr/>
+    <h5>링크의 쿼리 스트링 처리</h5>
+    <a th:href="@{/hello(name='AAA',age=16)}">Go to /hello</a><br/>
+    <a th:href="@{/hello(types=${ {'AA','BB','CC'} },age=16)}">Go to /hello</a>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+		
+		어노테이션 활성화
+		<context:annotation-config/>
+		
+		view의 경로, 확장자를 정해주는 부분 : DispatcherServlet이 이 경로를 따라서 컨트롤러가 날린 뷰의 이름에 해당하는 뷰가 있는지 찾아봄.
+		ViewResolver 생성				
+		<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	        <property name="prefix" value="/WEB-INF/views/"></property>
+	        <property name="suffix" value=".jsp"></property>
+	    </bean>
+	    
+	    <context:component-scan base-package="org.zerock.controller"></context:component-scan>
+	    
+	    
+	    리소스 접근 허용
+	    <mvc:resources mapping="/resources/**" location="/resources/"/>
+	    테스트
+	    <mvc:resources location="/test/" mapping="/test/**" />
+	    
+		<mvc:annotation-driven></mvc:annotation-driven>
+
+</beans> -->

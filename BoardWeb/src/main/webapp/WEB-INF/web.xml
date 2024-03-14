@@ -4,70 +4,15 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
          
-        <!-- 
-  		[ContextLoaderListener]
-  		- WAS 구동 시 web.xml을 읽을 때 초기셋팅작업 해주는 역할
- 			(WAS 구동순서 : server.xml -> web.xml -> ~)
-  		- 스프링에서 제공하는 클래스 중 하나, ContextLoader와 ServletContextListener를 상속함 
-  		- 스프링 설정파일을 읽기 위해 필요
-  		- 그래서 context-param 태그로 contextConfigLocation이라는 파라미터(=매개변수=그냥 변수를 만드는거임)에
-  		   스프링 설정파일 위치를 지정해준다.
-  		-->
-  		 <!-- 전달하기 위한 변수
-  		* <context-param>
-  		 - 전역변수 지정, 모든 서블릿 사용 가능( = <servlet> 밖에서 독립적으로 쓸 수 있음)
-		* <init-param>
-		 - 지역변수 지정, 특정 서블릿 사용 가능( = <servlet> 안에서만 쓸 수 있음)
-  		--> 
-  
-		<!-- ===listener 생성===(datasource, service, dao 등 Controller와 공유하는 Bean들이 들어있음.) -->
-	    <listener>
-	        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	    </listener>
-	
-		<!-- 공통으로 사용할 의존성 설정 파일(applicationContext.xml==root-context.xml)의 위치를 담는 파라미터 -->
-	    <context-param>
-	        <param-name>contextConfigLocation</param-name>
-	        <param-value>/WEB-INF/root-context.xml</param-value>
-	    </context-param>
-	    
-		<!-- ===DispatcherServlet 생성===(Controller, ViewResolver, hanlderMapping) -->
-	    <servlet>
-	        <servlet-name>app</servlet-name>
-	        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-	        <!-- contextLoader가 아래 위치의 설정 파일을 읽어서 이 파일을 DispatcherServlet으로 만든다. -->
-	        <init-param>
-	            <param-name>contextConfigLocation</param-name>
-	            <param-value>/WEB-INF/servlet-context.xml</param-value>
-	        </init-param>
-	        
-	        <load-on-startup>1</load-on-startup>
-	    </servlet>
-	    
-		 <!-- 로 끝나는 url의 요청을 받아서 DispatcherServlet에서 처리한다. -->
-	    <servlet-mapping>
-	        <servlet-name>dispatcher</servlet-name>
-	        <url-pattern>/</url-pattern>
-	    </servlet-mapping>
-	    
-	    
-	    
-	     <!-- ===Filter 생성===(encodingFilter) -->
-		 <filter>
-		   <filter-name>encodingFilter</filter-name>	
-		   <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-		   <init-param>
-		   		<param-name>encoding</param-name>
-		  		<param-value>UTF-8</param-value>
-		   </init-param>
-		 </filter>
-		 
-		 <filter-mapping>
-		 	<filter-name>encodingFilter</filter-name>
-		  	<url-pattern>/*</url-pattern>
-		 </filter-mapping>
-		  
-		  
-
+         <servlet>
+         	<servlet-name>action</servlet-name>
+         	<servlet-class>com.springbook.view.controller.DispatcherServlet</servlet-class>
+         </servlet>
+         
+         <servlet-mapping>
+         	<servlet-name>action</servlet-name>
+         	<url-pattern>*.do</url-pattern>
+         </servlet-mapping>
+         <!-- 위 설정은 클라이언트의 모든 *.do 요청을 DispatcherServlet 클래스의 객체가 처리한다는 설정. -->
          
 </web-app>

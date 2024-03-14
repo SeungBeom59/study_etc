@@ -51,11 +51,37 @@
 	    <version>5.3.27</version>
 	</dependency>
 	
+	<!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
+	<!-- dbcp - 1.4 이후 버전은 dbcp2로 이동 -->
 	<dependency>
+	    <groupId>commons-dbcp</groupId>
+	    <artifactId>commons-dbcp</artifactId>
+	    <version>1.4</version>
+	</dependency>
+	
+	
+	<!-- <dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-aop</artifactId>
 	    <version>5.3.27</version>
+	</dependency> -->
+	
+	
+	<!-- spring aop는 spring의 ioc를 이용하여 bean에만 적용하는 간편한 aop이고 아래의 aspectj가 진짜 aop -->
+	<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+	<dependency>
+	    <groupId>org.aspectj</groupId>
+	    <artifactId>aspectjweaver</artifactId>
+	    <version>1.8.8</version>
 	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+	<dependency>
+	    <groupId>org.aspectj</groupId>
+	    <artifactId>aspectjrt</artifactId>
+	    <version>1.6.10</version>
+	</dependency>
+	
 	
   	<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
   	<!-- h2 데이터베이스 -->
@@ -63,7 +89,6 @@
 	    <groupId>com.h2database</groupId>
 	    <artifactId>h2</artifactId>
 	    <version>1.4.200</version>
-	    <scope>test</scope>
 	</dependency>
   	
   	

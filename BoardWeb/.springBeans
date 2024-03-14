@@ -7,9 +7,9 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>src/main/webapp/WEB-INF/root-context.xml</config>
-		<config>src/main/webapp/WEB-INF/servlet-context.xml</config>
 		<config>src/main/resources/applicationContext.xml</config>
+		<config>src/main/webapp/WEB-INF/root-context예제.xml</config>
+		<config>src/main/webapp/WEB-INF/servlet-context예제.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

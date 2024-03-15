@@ -2,16 +2,18 @@ package com.springbook.view.board;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
 
 import com.springbook.biz.board.BoardVO;
 import com.springbook.biz.board.impl.BoardDAO;
-import com.springbook.view.controller.Controller;
+
 
 public class GetBoardController implements Controller {
 
 	@Override
-	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		
 		System.out.println("글 상세 조회 처리");
 		
@@ -25,11 +27,13 @@ public class GetBoardController implements Controller {
 		BoardDAO boardDAO = new BoardDAO();
 		BoardVO board = boardDAO.getBoard(vo);
 		
-		// 3. 검색 결ㄹ과를 세션에 저장하고 상세화면으로 이동.
-		HttpSession session = request.getSession();
-		session.setAttribute("board", board);
-		
-		return"getBoard";
+		// 3. 검색 결과를 세션에 저장하고 상세화면으로 이동.
+//		HttpSession session = request.getSession();
+//		session.setAttribute("board", board);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("board" , board);
+		mav.setViewName("getBoard");
+		return mav;
 	}
 	
 

@@ -10,6 +10,7 @@
 		<config>src/main/resources/applicationContext.xml</config>
 		<config>src/main/webapp/WEB-INF/root-context예제.xml</config>
 		<config>src/main/webapp/WEB-INF/servlet-context예제.xml</config>
+		<config>src/main/webapp/WEB-INF/config/presentation-layer.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

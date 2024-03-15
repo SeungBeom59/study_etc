@@ -4,15 +4,42 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
          
+         <!-- Spring에서 제공하는 DispactherServlet을 등록한다. -->
          <servlet>
          	<servlet-name>action</servlet-name>
-         	<servlet-class>com.springbook.view.controller.DispatcherServlet</servlet-class>
+         	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+         	<!-- 아래의 설정을 통해 DispatcherServlet의 init()메소드에서 참고할 스프링설정파일 위치, 파일 지정 -->
+         	<init-param>
+         		<param-name>contextConfigLocation</param-name>
+         		<param-value>/WEB-INF/config/presentation-layer.xml</param-value>
+         	</init-param>
          </servlet>
+         
+         <!-- 임의로 만들며 MVC 이해했던 DispatcherServlet -->
+         <!-- <servlet>
+         	<servlet-name>action</servlet-name>
+         	<servlet-class>com.springbook.view.controller.DispatcherServlet</servlet-class>
+         </servlet> -->
          
          <servlet-mapping>
          	<servlet-name>action</servlet-name>
          	<url-pattern>*.do</url-pattern>
          </servlet-mapping>
          <!-- 위 설정은 클라이언트의 모든 *.do 요청을 DispatcherServlet 클래스의 객체가 처리한다는 설정. -->
+         
+         <!-- 인코딩 설정 -->
+         <filter>
+         	<filter-name>characterEncoding</filter-name>
+         	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+         	<init-param>
+         		<param-name>encoding</param-name>
+         		<param-value>UTF-8</param-value>
+         	</init-param>
+         </filter>
+         <!-- .do로 들어오는 모든 요청에 대하여 인코딩 필터 적용 -->
+         <filter-mapping>
+         	<filter-name>characterEncoding</filter-name>
+         	<url-pattern>*.do</url-pattern>
+         </filter-mapping>
          
 </web-app>

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StopWatch;
 
 //@Service
-//@Aspect
+@Aspect
 public class AroundAdvice {
 	
 	@Pointcut("execution(* com.springbook.biz..*Impl.*(..))")

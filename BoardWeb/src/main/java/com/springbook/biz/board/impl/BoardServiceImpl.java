@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.springbook.biz.board.BoardService;
 import com.springbook.biz.board.BoardVO;
@@ -13,7 +12,7 @@ import com.springbook.biz.board.BoardVO;
 public class BoardServiceImpl implements BoardService {
 	
 	@Autowired
-	private BoardDAOSpring boardDAO;
+	private BoardDAO boardDAO;
 	
 
 	@Override
@@ -33,7 +32,6 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void deleteBoard(BoardVO vo) {
-		// TODO Auto-generated method stub
 		boardDAO.deleteBoard(vo);
 	}
 

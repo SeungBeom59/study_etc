@@ -2,6 +2,7 @@
 <%@ page import="com.springbook.biz.board.impl.BoardDAO" %>
 <%@ page import="com.springbook.biz.board.BoardVO" %> --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%
 	/* // 1. 사용자 입력 정보 추출(검색 기능 나중에 구현)
 	
@@ -25,9 +26,11 @@
 </head>
 <body>
 	<center>
-		<h1>글 목록</h1>
+		<!-- <h1>글 목록</h1> -->
+		<h1><spring:message code="message.board.list.mainTitle"/></h1>
 		<!-- <h3>테스트님 환영합니다...<a href="logout_proc.jsp">Log-Out</a></h3> -->
-		<h3>${userName}님 환영합니다...<a href="logout.do">Log-Out</a></h3>
+		<%-- <h3>${userName}님 환영합니다...<a href="logout.do">Log-Out</a></h3> --%>
+		<h3>${userName} <spring:message code="message.board.list.welcomMsg"/>... <a href="logout.do">Log-Out</a></h3>
 		
 		<!-- 검색 시작 -->
 		<form action="getBoardList.do" method="post">
@@ -40,7 +43,7 @@
 							</c:forEach>
 						</select>
 						<input name="searchKeyword" type="text" />
-						<input type="submit" value="검색" />
+						<input type="submit" value="<spring:message code="message.board.list.search.condition.btn"/>" />
 					</td>
 				</tr>
 			</table>
@@ -49,11 +52,16 @@
 		
 		<table border="1" cellpadding="0" cellspacing="0" width="700">
 			<tr>
-				<th bgcolor="orange" width="100">번호</th>
+				<!-- <th bgcolor="orange" width="100">번호</th>
 				<th bgcolor="orange" width="200">제목</th>
 				<th bgcolor="orange" width="150">작성자</th>
 				<th bgcolor="orange" width="150">등록일</th>
-				<th bgcolor="orange" width="100">조회수</th>
+				<th bgcolor="orange" width="100">조회수</th> -->
+				<th bgcolor="orange" width="100"><spring:message code="message.board.list.table.head.seq"/></th>
+				<th bgcolor="orange" width="200"><spring:message code="message.board.list.table.head.title"/></th>
+				<th bgcolor="orange" width="150"><spring:message code="message.board.list.table.head.writer"/></th>
+				<th bgcolor="orange" width="150"><spring:message code="message.board.list.table.head.regDate"/></th>
+				<th bgcolor="orange" width="100"><spring:message code="message.board.list.table.head.cnt"/></th>
 			</tr>
 			<%-- <% for(BoardVO board : boardList){ %>
 			<tr>
@@ -79,7 +87,8 @@
 		
 		<br>
 		
-		<a href="insertBoard.jsp">글 작성</a>
+		<!-- <a href="insertBoard.jsp">글 작성</a> -->
+		<a href="insertBoard.jsp"><spring:message code="message.board.list.insertBoard"/></a>
 	</center>
 </body>
 </html>

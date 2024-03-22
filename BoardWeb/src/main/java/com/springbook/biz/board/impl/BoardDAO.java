@@ -20,6 +20,7 @@ public class BoardDAO {
 	private ResultSet rs;
 	
 	// SQL 명령어들
+//	private final String BOARD_INSERT = "insert into board(seq, title, writer, content) values(?,?,?,?)";
 	private final String BOARD_INSERT = 
 			"insert into board(seq, title, writer, content) values((select nvl(max(seq),0)+1 from board), ?,?,?)";
 	private final String BOARD_UPDATE =
@@ -138,6 +139,7 @@ public class BoardDAO {
 			stmt.setString(1, vo.getSearchKeyword());
 			
 			rs = stmt.executeQuery();
+			
 			while(rs.next()) {
 				BoardVO board = new BoardVO();
 				board.setSeq(rs.getInt("SEQ"));

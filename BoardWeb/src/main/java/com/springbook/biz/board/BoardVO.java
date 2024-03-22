@@ -2,7 +2,9 @@ package com.springbook.biz.board;
 
 import java.sql.Date;
 
-import lombok.Getter;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 // VO(value object)
 public class BoardVO {
@@ -17,12 +19,15 @@ public class BoardVO {
 	private String searchCondition;
 	private String searchKeyword;
 	
+	private MultipartFile uploadFile;
+	
 	public int getSeq() {
 		return seq;
 	}
 	public void setSeq(int seq) {
 		this.seq = seq;
 	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -54,9 +59,11 @@ public class BoardVO {
 		this.cnt = cnt;
 	}
 	
+	@JsonIgnore
 	public String getSearchCondition() {
 		return searchCondition;
 	}
+	@JsonIgnore
 	public String getSearchKeyword() {
 		return searchKeyword;
 	}
@@ -65,6 +72,14 @@ public class BoardVO {
 	}
 	public void setSearchKeyword(String searchKeyword) {
 		this.searchKeyword = searchKeyword;
+	}
+	
+	@JsonIgnore
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
 	}
 	
 	@Override

@@ -1,4 +1,4 @@
-import something.Person;
+package reflection;
 
 //import java.lang.reflect.*;
 import java.lang.reflect.Constructor;
@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 import static java.lang.System.out;
 
-public class JavaStudy {
+public class ReflectionStudy {
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchFieldException {
 
         // 이미 인스턴스 생성된 객체를 이용하여 클래스 정보 가져오기
@@ -29,14 +29,14 @@ public class JavaStudy {
 
         // 전체경로 정보로 가져오기
         // .forName 가져오기
-        Class<?> classInfo3 = Class.forName("something.Person");
+        Class<?> classInfo3 = Class.forName("reflection.Person");
         out.println("classInfo3 : "  + classInfo3 ); // classInfo3 : class something.Person
 
         // 클래스 이름 얻기
         out.println("className = " + classInfo1.getName());  // className = something.Person
 
         // 생성자 얻기와 사용
-        Class<?> unkownClass = Class.forName("something.Person");
+        Class<?> unkownClass = Class.forName("reflection.Person");
         Constructor[] allConstructors = unkownClass.getDeclaredConstructors();  // 접근제한자 상관안하고 가져오기
         out.println("allConstructors : " + Arrays.toString(allConstructors));
         // allConstructors : [public something.Person(java.lang.String,int), public something.Person(java.lang.String), public something.Person()]

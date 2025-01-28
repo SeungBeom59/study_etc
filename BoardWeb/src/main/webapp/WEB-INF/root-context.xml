@@ -1,15 +1,28 @@
-<!-- <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-		
-		
-		
-		<context:component-scan base-package="org.zerock.service"></context:component-scan>
-		<context:component-scan base-package="org.zerock.repository"></context:component-scan>
+<!-- <?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+<!--	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--	xmlns:context="http://www.springframework.org/schema/context"-->
+<!--	xmlns:mvc="http://www.springframework.org/schema/mvc"-->
+<!--	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd-->
+<!--		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd-->
+<!--		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">-->
 
-</beans> -->
+<!--    &lt;!&ndash;    xmlns:aop="http://www.springframework.org/schema/aop"&ndash;&gt;-->
+
+<!--		<context:component-scan base-package="org.zerock.service"></context:component-scan>-->
+<!--		<context:component-scan base-package="org.zerock.repository"></context:component-scan>-->
+
+<!--        <bean id="log" class="com.springbook.biz.common.Log4jAdvice"></bean>-->
+
+<!--        <aop:config>-->
+<!--            <aop:pointcut id="allPointcut" expression="execution(* com.springbook.biz..*Impl.*(..))" />-->
+<!--            <aop:pointcut id="getPointcut" expression="execution(* cpm.springbook.biz..*Impl.get*(..))" />-->
+
+<!--            <aop:aspect ref="log">-->
+<!--                <aop:after-throwing pointcut-ref="allPointcut" method="printLogging" throwing="exceptObj" />-->
+<!--            </aop:aspect>-->
+<!--        </aop:config>-->
+
+
+
+<!--</beans>-->

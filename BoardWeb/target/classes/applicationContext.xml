@@ -15,6 +15,15 @@
 	<context:component-scan base-package="com.springbook.biz"></context:component-scan>
 	
 	<context:property-placeholder location="classpath:config/database.properties"/>
+
+<!--	<bean id="todoService" class="com.example.service.TodoServiceImpl">-->
+<!--		&lt;!&ndash; 의존성을 주입할 생성자 지정 &ndash;&gt;-->
+<!--		<constructor-arg ref="todoMapper"/>-->
+<!--		<constructor-arg ref="modelMapper"/>-->
+<!--	</bean>-->
+
+<!--	<bean id="todoMapper" class="com.example.mapper.TodoMapper"/>-->
+<!--	<bean id="modelMapper" class="org.modelmapper.ModelMapper"/>-->
 	
 	<!-- DB - DataSource 설정 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
@@ -64,11 +73,11 @@
 	
 	<!-- <bean id="log" class="com.springbook.biz.common.Log4jAdvice"></bean> -->
 	
-<!-- 	<bean id="beforeLog" class="com.springbook.biz.common.BeforeAdvice"></bean>
-	<bean id="afterReturing" class="com.springbook.biz.common.AfterReturningAdvice"></bean>
-	<bean id="afterThrowing" class="com.springbook.biz.common.AfterThowingAdvice"></bean>
-	<bean id="after" class="com.springbook.biz.common.AfterAdvice"></bean>
-	<bean id="around" class="com.springbook.biz.common.AroundAdvice"></bean> -->
+<!-- 	<bean id="beforeLog" class="com.springbook.biz.common.BeforeAdvice"></bean>-->
+<!--	<bean id="afterReturing" class="com.springbook.biz.common.AfterReturningAdvice"></bean>-->
+<!--	<bean id="afterThrowing" class="com.springbook.biz.common.AfterThowingAdvice"></bean>-->
+<!--	<bean id="after" class="com.springbook.biz.common.AfterAdvice"></bean>-->
+<!--	<bean id="around" class="com.springbook.biz.common.AroundAdvice"></bean> -->
 
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 	

@@ -1,5 +1,10 @@
 package com.springbook.view.controller;
 
+import org.springframework.lang.Nullable;
+
+import java.util.Collection;
+import java.util.Map;
+
 public class ViewResolver {
 	
 	public String prefix;
@@ -16,3 +21,4 @@ public class ViewResolver {
 		return prefix + viewName + suffix;
 	}
 }
+

@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Repository;
 
 import com.springbook.biz.board.BoardVO;
@@ -18,6 +20,7 @@ public class BoardDAO {
 	private Connection conn;
 	private PreparedStatement stmt;
 	private ResultSet rs;
+
 	
 	// SQL 명령어들
 //	private final String BOARD_INSERT = "insert into board(seq, title, writer, content) values(?,?,?,?)";

@@ -4,6 +4,9 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 
 import com.springbook.biz.user.UserVO;
@@ -11,6 +14,7 @@ import com.springbook.biz.user.UserVO;
 //@Service
 //@Aspect
 public class AfterReturningAdvice {
+
 	
 //	@Pointcut("execution(* com.springbook.biz..*Impl.get*(..))")
 //	public void getPointcut() {}

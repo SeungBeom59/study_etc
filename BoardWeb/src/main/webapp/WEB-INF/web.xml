@@ -24,13 +24,13 @@
          		<param-value>/WEB-INF/config/presentation-layer.xml</param-value>
          	</init-param>
          </servlet>
-         
+
          <!-- 임의로 만들며 MVC 이해했던 DispatcherServlet -->
          <!-- <servlet>
          	<servlet-name>action</servlet-name>
          	<servlet-class>com.springbook.view.controller.DispatcherServlet</servlet-class>
          </servlet> -->
-         
+
          <servlet-mapping>
          	<servlet-name>action</servlet-name>
          	<url-pattern>*.do</url-pattern>

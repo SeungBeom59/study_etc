@@ -12,10 +12,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.zerock.b01.security.CustomUserDetailsService;
 import org.zerock.b01.security.handler.Custom403Handler;
+import org.zerock.b01.security.handler.CustomSocialLoginSuccessHandler;
 
 import javax.sql.DataSource;
 
@@ -46,7 +48,7 @@ public class CustomSecurityConfig {
 
         http.exceptionHandling().accessDeniedHandler(accessDeniedHandler());
         // OAuth2 로그인 사용 설정
-        http.oauth2Login().loginPage("/member/login");
+        http.oauth2Login().loginPage("/member/login").successHandler(authenticationSuccessHandler());
 
         return http.build();
     }
@@ -74,6 +76,14 @@ public class CustomSecurityConfig {
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
+    }
+
+    // OAuth2 로그인 관련 로그인 성공 처리시 SuccessHandler로 아래의 내용을 이용하도록 bean 등록
+    @Bean
+    public AuthenticationSuccessHandler authenticationSuccessHandler(){
+        // 이미 의존성 주입을 처리해주고 있는 passwordEncoder를 왜 넣어주나 싶었는데
+        // gpt가 말하기를 빈이 두번 생성되는 것을 방지하고 동일한 빈을 참조하도록 하기 위함이란다.
+        return new CustomSocialLoginSuccessHandler(passwordEncoder());
     }
 
 }

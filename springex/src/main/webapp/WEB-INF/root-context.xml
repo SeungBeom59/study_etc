@@ -7,7 +7,7 @@
        http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
        http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
 
-<!--    <context:component-scan base-package="org.zerock.springex.sample" />-->
+    <context:component-scan base-package="org.zerock.springex.sample" />
 
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
         <property name="driverClassName" value="org.mariadb.jdbc.Driver"></property>
@@ -37,7 +37,7 @@
     <context:component-scan base-package="org.zerock.springex.config" />
     <context:component-scan base-package="org.zerock.springex.service" />
 
-<!--    <bean id="sampleDAO" class="org.zerock.springex.sample.SampleDAO"/>-->
-<!--    <bean id="sampleService" class="org.zerock.springex.sample.SampleService"/>-->
+    <bean id="sampleDAO" class="org.zerock.springex.sample.SampleDAO"/>
+    <bean id="sampleService" class="org.zerock.springex.sample.SampleService"/>
 
 </beans>

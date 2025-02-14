@@ -3,6 +3,7 @@ package org.zerock.springex.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.zerock.springex.domain.TodoVO;
 import org.zerock.springex.dto.PageRequestDTO;
@@ -13,13 +14,18 @@ import org.zerock.springex.mapper.TodoMapper;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service
+
 @Log4j2
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
+
+@Service
 public class TodoServiceImpl implements TodoService{
 
-    private final TodoMapper todoMapper;
-    private final ModelMapper modelMapper;
+    @Autowired
+    private TodoMapper todoMapper;
+    @Autowired
+    private ModelMapper modelMapper;
+
 
     /**
      * todoDTO 정보 넣기
